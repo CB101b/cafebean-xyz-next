@@ -22,4 +22,12 @@ body {
   .text-color-fg-active {
     color: var(--foreground-active-hex);
   }
+
+  .text-bgcolor {
+    color: var(--background-hex);
+  }
+
+  .bg-fgcolor {
+    background-color: var(--foreground-hex);
+  }
 }
