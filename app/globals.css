@@ -5,7 +5,7 @@
 :root {
   --background-hex: #F3D9C6;
   --foreground-hex: #85400d;
-  --foreground-hover-hex: #000000;
+  --foreground-active-hex: #000000;
 }
 
 /* @media (prefers-color-scheme: dark) {
@@ -19,7 +19,7 @@ body {
   background-color: var(--background-hex);
 }
 @layer utilities{
-  .text-color-fg-hover {
-    color: var(--foreground-hover-hex);
+  .text-color-fg-active {
+    color: var(--foreground-active-hex);
   }
 }
