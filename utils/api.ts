@@ -26,6 +26,22 @@ export type AboutMe = {
     }
 }
 
+export type Song = {
+    attributes: {
+        title: string,
+        audio_file: {
+            data: {
+                attributes: {
+                    url: string
+                }
+            }
+        }
+    }
+}
+export type Songs = {
+    data: Song[]
+}
+
 export async function getWorks(): Promise<Works> {
     const res = await axios.get(`${process.env.NEXT_PUBLIC_STRAPI_URL}/api/works?populate=*`);
     return res.data;
@@ -33,5 +49,10 @@ export async function getWorks(): Promise<Works> {
 
 export async function getAboutMe(): Promise<AboutMe> {
     const res = await axios.get(`${process.env.NEXT_PUBLIC_STRAPI_URL}/api/about-me`);
+    return res.data;
+}
+
+export async function getSongs(): Promise<Songs> {
+    const res = await axios.get(`${process.env.NEXT_PUBLIC_STRAPI_URL}/api/songs?populate=audio_file`);
     return res.data;
 }
