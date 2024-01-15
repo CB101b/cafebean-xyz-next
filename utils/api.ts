@@ -27,6 +27,7 @@ export type AboutMe = {
 }
 
 export type Song = {
+    id: number,
     attributes: {
         title: string,
         audio_file: {

@@ -14,7 +14,7 @@ export default function Music() {
     return (
         <div className="p-24">
             {songs.map((song: Song) => (
-                <MusicPlayer title={song.attributes.title} src={`${process.env.NEXT_PUBLIC_STRAPI_URL}${song.attributes.audio_file.data.attributes.url}`} />
+                <MusicPlayer key={song.id} title={song.attributes.title} src={`${process.env.NEXT_PUBLIC_STRAPI_URL}${song.attributes.audio_file.data.attributes.url}`} />
             ))}
         </div>
     )
