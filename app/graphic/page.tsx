@@ -3,24 +3,7 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
 import GraphicEntryCard from "../components/GraphicEntryCard"
-
-interface WorkItem {
-    attributes: {
-        title: string;
-        category: string;
-        cover_photo: {
-            data: {
-                attributes: {
-                    url: string
-                }
-            }
-        }
-    }
-}
-
-interface WorksApiResponse {
-    data: WorkItem[]
-}
+import { WorkItem, getWorks } from "@/utils/api";
 
 export default function Graphic() {
     let [workItems, setWorkItems]: [WorkItem[], Function] = useState([]);
@@ -30,10 +13,6 @@ export default function Graphic() {
             setWorkItems(works.data);
         })
     }, [])
-    async function getWorks(): Promise<WorksApiResponse> {
-        const res = await axios.get(`${process.env.NEXT_PUBLIC_STRAPI_URL}/api/works?populate=*`);
-        return res.data;
-    }
     return (
         <div className="grid grid-cols-3">
             {workItems.map(item => (
