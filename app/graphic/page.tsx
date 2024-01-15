@@ -9,7 +9,6 @@ export default function Graphic() {
     let [workItems, setWorkItems]: [WorkItem[], Function] = useState([]);
     useEffect(() => {
         getWorks().then(works => {
-            console.log(works);
             setWorkItems(works.data);
         })
     }, [])
